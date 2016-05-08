@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace kursach
 {
-    public partial class Form1 : Form
+    public partial class Registration : Form
     {
-        public Form1()
+        public Registration()
         {
             InitializeComponent();
+        }
+
+        private void Registration_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

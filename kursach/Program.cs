@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace kursach
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// Главная точка входа для приложения.
@@ -14,9 +14,12 @@ namespace kursach
         [STAThread]
         static void Main()
         {
+            Shop shop = new Shop("test1", "test1", "test1", "test1", 1);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            var login = new Login();
+            Application.Run(login);
+            
         }
     }
 }
