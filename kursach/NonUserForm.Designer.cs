@@ -1,6 +1,6 @@
 ﻿namespace kursach
 {
-    partial class NonUserForm1
+    partial class NonUserForm
     {
         /// <summary>
         /// Required designer variable.

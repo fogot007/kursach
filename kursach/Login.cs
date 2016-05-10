@@ -52,7 +52,28 @@ namespace kursach
                 {
                     if (MyMd5.VerifyMd5Hash(md5Hash, password, dbPassword.ToString()))
                     {
-                        
+                        switch (dbGroup.ToString())
+                        {
+                            case "1":
+                            {
+                                var adminForm = new AdminForm();
+                                adminForm.Show();
+                                break;
+                            }
+                            case "2":
+                            {
+                                var userForm = new UserForm();
+                                userForm.Show();
+                                break;
+                            }
+                            case "3":
+                            {
+                                var nonUserForm = new NonUserForm();
+                                nonUserForm.Show();
+                                break;
+                            }
+                        }
+                        this.Hide();
                     }
                 }
             }

@@ -62,11 +62,11 @@
     </Compile>
     <Compile Include="MyMd5.cs" />
     <Compile Include="MySQLConnect.cs" />
-    <Compile Include="NonUserForm1.cs">
+    <Compile Include="NonUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NonUserForm1.Designer.cs">
-      <DependentUpon>NonUserForm1.cs</DependentUpon>
+    <Compile Include="NonUserForm.Designer.cs">
+      <DependentUpon>NonUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,6 +102,9 @@
     </Compile>
     <EmbeddedResource Include="Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

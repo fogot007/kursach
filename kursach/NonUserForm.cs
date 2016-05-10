@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace kursach
 {
-    public partial class NonUserForm1 : Form
+    public partial class NonUserForm : Form
     {
-        public NonUserForm1()
+        public NonUserForm()
         {
             InitializeComponent();
         }
