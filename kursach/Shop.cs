@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace kursach
+﻿namespace kursach
 {
     internal class Shop
     {

@@ -6,23 +6,11 @@ using MySql.Data.MySqlClient;
 
 namespace kursach
 {
-    public partial class Registration : Form
+    public partial class AddUserForm : Form
     {
-        public Registration()
+        public AddUserForm()
         {
             InitializeComponent();
-        }
-
-        private void Registration_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-        private void ButtonBackToLogin_Click(object sender, EventArgs e)
-        {
-            var login = new Login();
-            login.Show();
-            Hide();
         }
 
         private void ButtonSubmit_Click(object sender, EventArgs e)
@@ -69,7 +57,7 @@ namespace kursach
                             cmd.Prepare();
                             cmd.Parameters.AddWithValue("@login", login);
                             cmd.Parameters.AddWithValue("@password", password);
-                            cmd.Parameters.AddWithValue("@groupId", 2);
+                            cmd.Parameters.AddWithValue("@groupId", checkBox1.Checked ? 1 : 2);
                             cmd.ExecuteNonQuery();
                             label1.Text = @"succes";
                         }
@@ -77,6 +65,13 @@ namespace kursach
                 }
                 connection.Close();
             }
+        }
+
+        private void ButtonBackToShops_Click(object sender, EventArgs e)
+        {
+            var userForm = new UserForm();
+            userForm.Show();
+            Hide();
         }
     }
 }

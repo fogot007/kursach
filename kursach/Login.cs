@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -66,14 +60,8 @@ namespace kursach
                                 userForm.Show();
                                 break;
                             }
-                            case "3":
-                            {
-                                var nonUserForm = new NonUserForm();
-                                nonUserForm.Show();
-                                break;
-                            }
                         }
-                        this.Hide();
+                        Hide();
                     }
                 }
             }
@@ -83,7 +71,14 @@ namespace kursach
         {
             var register = new Registration();
             register.Show();
-            this.Hide();
+            Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var nonUserForm = new NonUserForm();
+            nonUserForm.Show();
+            Hide();
         }
     }
 }

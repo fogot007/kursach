@@ -28,30 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.EnterButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.TryButton = new System.Windows.Forms.Button();
+            this.RegisterButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // EnterButton
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(47, 110);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "ENTER";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.EnterButton.AutoSize = true;
+            this.EnterButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.EnterButton.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnterButton.Location = new System.Drawing.Point(0, 182);
+            this.EnterButton.Name = "EnterButton";
+            this.EnterButton.Size = new System.Drawing.Size(246, 27);
+            this.EnterButton.TabIndex = 0;
+            this.EnterButton.Text = "ENTER";
+            this.EnterButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.EnterButton.UseMnemonic = false;
+            this.EnterButton.UseVisualStyleBackColor = true;
+            this.EnterButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBox1.Location = new System.Drawing.Point(85, 58);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(148, 20);
@@ -68,7 +72,8 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(85, 81);
+            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBox2.Location = new System.Drawing.Point(85, 84);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(148, 20);
             this.textBox2.TabIndex = 3;
@@ -84,49 +89,55 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label3.Location = new System.Drawing.Point(106, 9);
+            this.label3.Location = new System.Drawing.Point(86, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 21);
             this.label3.TabIndex = 5;
             this.label3.Text = "LOGIN";
             // 
-            // button2
+            // TryButton
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(47, 139);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(186, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "TRY";
-            this.button2.UseVisualStyleBackColor = true;
+            this.TryButton.AutoSize = true;
+            this.TryButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.TryButton.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TryButton.Location = new System.Drawing.Point(0, 155);
+            this.TryButton.Name = "TryButton";
+            this.TryButton.Size = new System.Drawing.Size(246, 27);
+            this.TryButton.TabIndex = 6;
+            this.TryButton.Text = "TRY";
+            this.TryButton.UseVisualStyleBackColor = true;
+            this.TryButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // RegisterButton
             // 
-            this.button3.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(47, 168);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(186, 23);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "REGISTRATION";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.RegisterButton.AutoSize = true;
+            this.RegisterButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.RegisterButton.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegisterButton.Location = new System.Drawing.Point(0, 128);
+            this.RegisterButton.Name = "RegisterButton";
+            this.RegisterButton.Size = new System.Drawing.Size(246, 27);
+            this.RegisterButton.TabIndex = 7;
+            this.RegisterButton.Text = "REGISTRATION";
+            this.RegisterButton.UseVisualStyleBackColor = true;
+            this.RegisterButton.Click += new System.EventHandler(this.button3_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(246, 201);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(246, 209);
+            this.Controls.Add(this.RegisterButton);
+            this.Controls.Add(this.TryButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.EnterButton);
             this.Name = "Login";
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -136,14 +147,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button EnterButton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button TryButton;
+        private System.Windows.Forms.Button RegisterButton;
     }
 }
 
