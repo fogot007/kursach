@@ -8,7 +8,7 @@ namespace kursach
     {
         public static string GetMd5Hash(MD5 md5Hash, string input)
         {
-            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+            var data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
             var sBuilder = new StringBuilder();
             foreach (var t in data)
             {

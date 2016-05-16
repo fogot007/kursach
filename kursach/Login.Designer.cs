@@ -51,7 +51,7 @@
             this.EnterButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.EnterButton.UseMnemonic = false;
             this.EnterButton.UseVisualStyleBackColor = true;
-            this.EnterButton.Click += new System.EventHandler(this.button1_Click);
+            this.EnterButton.Click += new System.EventHandler(this.EnterButton_Click);
             // 
             // textBox1
             // 
@@ -93,7 +93,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label3.Location = new System.Drawing.Point(86, 9);
+            this.label3.Location = new System.Drawing.Point(97, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 21);
             this.label3.TabIndex = 5;
@@ -110,7 +110,7 @@
             this.TryButton.TabIndex = 6;
             this.TryButton.Text = "TRY";
             this.TryButton.UseVisualStyleBackColor = true;
-            this.TryButton.Click += new System.EventHandler(this.button2_Click);
+            this.TryButton.Click += new System.EventHandler(this.TryButton_Click);
             // 
             // RegisterButton
             // 
@@ -123,7 +123,7 @@
             this.RegisterButton.TabIndex = 7;
             this.RegisterButton.Text = "REGISTRATION";
             this.RegisterButton.UseVisualStyleBackColor = true;
-            this.RegisterButton.Click += new System.EventHandler(this.button3_Click);
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // Login
             // 
