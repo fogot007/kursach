@@ -75,11 +75,6 @@
             // 
             this.radioButtonShops.Location = new System.Drawing.Point(97, 27);
             // 
-            // buttonOk
-            // 
-            this.buttonOk.Location = new System.Drawing.Point(176, 47);
-            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
-            // 
             // buttonGo
             // 
             this.buttonGo.Location = new System.Drawing.Point(113, 47);
@@ -197,8 +192,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            Data.DataGridViewShops = dataGridViewShops;
-            Data.DataGridViewFav = dataGridViewLeftPanel;
         }
 
         #endregion

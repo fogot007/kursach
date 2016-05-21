@@ -45,6 +45,7 @@ namespace kursach
                 }
             }
             Hide();
+            Data.FillDataAdmin();
         }
     }
 }

@@ -9,6 +9,8 @@ namespace kursach
         public UserForm()
         {
             InitializeComponent();
+            Data.DataGridViewShops = dataGridViewShops;
+            Data.DataGridViewFav = dataGridViewLeftPanel;
             Data.FillDataUsr();
             Data.UpdateFavourites();
         }
@@ -81,6 +83,8 @@ namespace kursach
                 for (var j = 0; j < dataGridViewLeftPanel.RowCount; j++)
                     dataGridViewLeftPanel.Rows[j].Selected = false;
         }
+
+
 
         private void dataGridViewLeftPanel_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

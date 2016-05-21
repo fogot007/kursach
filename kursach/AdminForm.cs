@@ -8,6 +8,8 @@ namespace kursach
         public AdminForm()
         {
             InitializeComponent();
+            Data.DataGridViewShops = dataGridViewShops;
+            Data.DataGridViewUsers = dataGridViewUsers;
             Data.FillDataAdmin();
             Data.UpdateUsers();
         }
@@ -52,14 +54,26 @@ namespace kursach
                     dataGridViewUsers.Rows[j].Selected = false;
         }
 
-        private void dataGridViewUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             var addUser = new AddUserForm();
             addUser.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            var data = dataGridViewShops.Enabled ? dataGridViewShops : dataGridViewUsers;
+            for (var i = 0; i < data.RowCount; i++)
+                if (data.Rows[i].Selected)
+                {
+                    Data.DeleteRow(int.Parse(data[i, 0].Value.ToString()), i);
+                    break;
+                }
         }
     }
 }

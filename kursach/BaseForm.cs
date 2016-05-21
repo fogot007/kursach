@@ -5,6 +5,9 @@ namespace kursach
 {
     public partial class BaseForm : Form
     {
+        protected MySqlForUser MySqlForUser;
+        protected MySqlForShops MySqlForShops;
+        protected MySqlForFavourites MySqlForFavourites;
         public BaseForm()
         {
             InitializeComponent();

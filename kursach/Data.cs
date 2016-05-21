@@ -12,8 +12,6 @@ namespace kursach
 
         public static DataGridView DataGridViewUsers { get; set; }
 
-        public static string Login { get; set; }
-
 
         public static int UserId { get; set; }
 
@@ -134,20 +132,32 @@ namespace kursach
                 using (var a = new MySqlDataAdapter(
                     "SELECT * FROM shops", c))
                 {
-                    var t = new DataTable();
+                    DataTable t = new DataTable();
                     a.Fill(t);
                     DataGridViewShops.DataSource = t;
                 }
                 c.Close();
             }
-            var buttonColumnChange = new DataGridViewButtonColumn
+        }
+
+        public static void DeleteRow(int shopId, int indx)
+        {
+            using (var c = new MySqlConnection("server=localhost;uid=root;pwd=1111;database=Shops;")
+                    )
             {
-                HeaderText = @"Change",
-                Text = "*",
-                Name = "btnChange",
-                UseColumnTextForButtonValue = true
-            };
-            DataGridViewShops.Columns.Add(buttonColumnChange);
+                c.Open();
+                using (
+                    var cmd =
+                        new MySqlCommand(
+                            "DELETE FROM favourites WHERE shop_id = @ShopId LIMIT 1",
+                            c))
+                {
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@ShopId", ShopId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            DataGridViewFav.Rows.RemoveAt(indx);
         }
     }
 }

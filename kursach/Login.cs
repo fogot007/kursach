@@ -44,29 +44,26 @@ namespace kursach
                     }
                 }
                 connection.Close();
-                Data.Login = dbGroup.ToString();
                 Data.UserId = int.Parse(dbUserId.ToString());
                 using (var md5Hash = MD5.Create())
                 {
-                    if (MyMd5.VerifyMd5Hash(md5Hash, password, dbPassword.ToString()))
+                    if (!MyMd5.VerifyMd5Hash(md5Hash, password, dbPassword.ToString())) return;
+                    switch (dbGroup.ToString())
                     {
-                        switch (dbGroup.ToString())
+                        case "1":
                         {
-                            case "1":
-                            {
-                                var adminForm = new AdminForm();
-                                adminForm.Show();
-                                break;
-                            }
-                            case "2":
-                            {
-                                var userForm = new UserForm();
-                                userForm.Show();
-                                break;
-                            }
+                            var adminForm = new AdminForm();
+                            adminForm.Show();
+                            break;
                         }
-                        Hide();
+                        case "2":
+                        {
+                            var userForm = new UserForm();
+                            userForm.Show();
+                            break;
+                        }
                     }
+                    Hide();
                 }
             }
         }

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.dataGridViewShops = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ChangeButton = new System.Windows.Forms.Button();
+            this.DeleteUser = new System.Windows.Forms.Button();
+            this.AddUser = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,14 +45,13 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShops)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShops)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,10 +70,6 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.menuStrip1);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.dataGridViewUsers);
             this.splitContainer2.Size = new System.Drawing.Size(227, 362);
             this.splitContainer2.SplitterDistance = 100;
             // 
@@ -89,16 +84,10 @@
             // 
             this.radioButtonShops.Location = new System.Drawing.Point(12, 27);
             // 
-            // buttonOk
-            // 
-            this.buttonOk.Location = new System.Drawing.Point(175, 47);
-            this.buttonOk.Size = new System.Drawing.Size(50, 23);
-            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
-            // 
             // buttonGo
             // 
-            this.buttonGo.Location = new System.Drawing.Point(113, 47);
-            this.buttonGo.Size = new System.Drawing.Size(50, 23);
+            this.buttonGo.Location = new System.Drawing.Point(154, 47);
+            this.buttonGo.Size = new System.Drawing.Size(71, 23);
             this.buttonGo.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // searchString
@@ -124,84 +113,19 @@
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.dataGridViewUsers);
             this.splitContainer3.Panel1.Controls.Add(this.dataGridViewShops);
             // 
             // splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.button3);
-            this.splitContainer3.Panel2.Controls.Add(this.button2);
-            this.splitContainer3.Panel2.Controls.Add(this.button1);
+            this.splitContainer3.Panel2.Controls.Add(this.ChangeButton);
+            this.splitContainer3.Panel2.Controls.Add(this.DeleteUser);
+            this.splitContainer3.Panel2.Controls.Add(this.AddUser);
             this.splitContainer3.Panel2.Controls.Add(this.buttonDelete);
             this.splitContainer3.Panel2.Controls.Add(this.buttonAdd);
             this.splitContainer3.Size = new System.Drawing.Size(453, 362);
             this.splitContainer3.SplitterDistance = 328;
             this.splitContainer3.TabIndex = 0;
-            // 
-            // dataGridViewShops
-            // 
-            this.dataGridViewShops.AllowUserToAddRows = false;
-            this.dataGridViewShops.AllowUserToDeleteRows = false;
-            this.dataGridViewShops.AllowUserToResizeColumns = false;
-            this.dataGridViewShops.AllowUserToResizeRows = false;
-            this.dataGridViewShops.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewShops.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewShops.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewShops.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewShops.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewShops.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewShops.Name = "dataGridViewShops";
-            this.dataGridViewShops.ReadOnly = true;
-            this.dataGridViewShops.RowHeadersVisible = false;
-            this.dataGridViewShops.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewShops.Size = new System.Drawing.Size(453, 328);
-            this.dataGridViewShops.TabIndex = 0;
-            this.dataGridViewShops.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewShops_CellContentClick);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(327, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(246, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Delete user";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(165, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Add user";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Location = new System.Drawing.Point(84, 4);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelete.TabIndex = 1;
-            this.buttonDelete.Text = "Delete shop";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Location = new System.Drawing.Point(3, 4);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
-            this.buttonAdd.TabIndex = 0;
-            this.buttonAdd.Text = "Add shop";
-            this.buttonAdd.UseVisualStyleBackColor = true;
             // 
             // dataGridViewUsers
             // 
@@ -214,15 +138,81 @@
             this.dataGridViewUsers.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewUsers.Enabled = false;
             this.dataGridViewUsers.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridViewUsers.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.ReadOnly = true;
-            this.dataGridViewUsers.RowHeadersVisible = false;
             this.dataGridViewUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(227, 258);
+            this.dataGridViewUsers.Size = new System.Drawing.Size(453, 328);
             this.dataGridViewUsers.TabIndex = 0;
-            this.dataGridViewUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUsers_CellContentClick);
+            // 
+            // dataGridViewShops
+            // 
+            this.dataGridViewShops.AllowUserToAddRows = false;
+            this.dataGridViewShops.AllowUserToDeleteRows = false;
+            this.dataGridViewShops.AllowUserToResizeColumns = false;
+            this.dataGridViewShops.AllowUserToResizeRows = false;
+            this.dataGridViewShops.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewShops.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewShops.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewShops.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewShops.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewShops.Enabled = false;
+            this.dataGridViewShops.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewShops.Name = "dataGridViewShops";
+            this.dataGridViewShops.ReadOnly = true;
+            this.dataGridViewShops.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewShops.Size = new System.Drawing.Size(453, 328);
+            this.dataGridViewShops.TabIndex = 0;
+            // 
+            // ChangeButton
+            // 
+            this.ChangeButton.Location = new System.Drawing.Point(327, 4);
+            this.ChangeButton.Name = "ChangeButton";
+            this.ChangeButton.Size = new System.Drawing.Size(75, 23);
+            this.ChangeButton.TabIndex = 4;
+            this.ChangeButton.Text = "Change";
+            this.ChangeButton.UseVisualStyleBackColor = true;
+            this.ChangeButton.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // DeleteUser
+            // 
+            this.DeleteUser.Location = new System.Drawing.Point(246, 4);
+            this.DeleteUser.Name = "DeleteUser";
+            this.DeleteUser.Size = new System.Drawing.Size(75, 23);
+            this.DeleteUser.TabIndex = 3;
+            this.DeleteUser.Text = "Delete user";
+            this.DeleteUser.UseVisualStyleBackColor = true;
+            // 
+            // AddUser
+            // 
+            this.AddUser.Location = new System.Drawing.Point(165, 4);
+            this.AddUser.Name = "AddUser";
+            this.AddUser.Size = new System.Drawing.Size(75, 23);
+            this.AddUser.TabIndex = 2;
+            this.AddUser.Text = "Add user";
+            this.AddUser.UseVisualStyleBackColor = true;
+            this.AddUser.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(84, 4);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelete.TabIndex = 1;
+            this.buttonDelete.Text = "Delete shop";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(3, 4);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.TabIndex = 0;
+            this.buttonAdd.Text = "Add shop";
+            this.buttonAdd.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
@@ -263,25 +253,21 @@
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
-            this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShops)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShops)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            Data.DataGridViewShops = dataGridViewShops;
-            Data.DataGridViewUsers = dataGridViewUsers;
 
         }
 
         #endregion
-
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.DataGridView dataGridViewShops;
         private System.Windows.Forms.Button buttonDelete;
@@ -290,8 +276,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ChangeButton;
+        private System.Windows.Forms.Button DeleteUser;
+        private System.Windows.Forms.Button AddUser;
     }
 }
