@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <User>
+    <user_id>29</user_id>
+    <user_login>user</user_login>
+    <user_password>ee11cbb19052e40b07aac0ca060c23ee</user_password>
+    <group_id>2</group_id>
+  </User>
+  <User>
+    <user_id>28</user_id>
+    <user_login>admin</user_login>
+    <user_password>21232f297a57a5a743894a0e4a801fc3</user_password>
+    <group_id>1</group_id>
+  </User>
+</DocumentElement>

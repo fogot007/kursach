@@ -1,79 +1,202 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace kursach
 {
-    public partial class AdminForm : BaseForm
+    public partial class AdminForm : Form
     {
-        public AdminForm()
+        private readonly MySqlForUsersTable _mySqlForUsersTable;
+        private readonly MySqlForShopsTable _mySqlForShopsTable;
+        private readonly Xml _xml;
+        private Shop _shop;
+        private User _user;
+        private User _currentUser;
+
+        public AdminForm(User user)
         {
+            _xml = new Xml();
             InitializeComponent();
-            Data.DataGridViewShops = dataGridViewShops;
-            Data.DataGridViewUsers = dataGridViewUsers;
-            Data.FillDataAdmin();
-            Data.UpdateUsers();
+            _user = user;
+            _mySqlForUsersTable = new MySqlForUsersTable();
+            _mySqlForShopsTable = new MySqlForShopsTable();
+            _mySqlForShopsTable.FillData(dataGridViewShops);
+            _mySqlForUsersTable.FillDataUsers(dataGridViewUsers);
+            AdminElementsConfig();
+            UpdateInfoBarShops();
+            UpdateInfoBarUsers();
         }
 
-
-        private void dataGridViewShops_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex < 0) return;
-            Data.ShopName = dataGridViewShops[2, e.RowIndex].Value.ToString();
-            Data.ShopId = int.Parse(dataGridViewShops[1, e.RowIndex].Value.ToString());
-            if (e.ColumnIndex == 0)
+            if (TabStatus())
             {
-                var shop = new UpdateShop(dataGridViewShops[2, e.RowIndex].Value.ToString(),
-                    dataGridViewShops[3, e.RowIndex].Value.ToString(), dataGridViewShops[4, e.RowIndex].Value.ToString(),
-                    dataGridViewShops[5, e.RowIndex].Value.ToString(), dataGridViewShops[6, e.RowIndex].Value.ToString());
-                shop.Show();
+                var addUser = new AddUserForm(dataGridViewUsers);
+                addUser.Show();
             }
-        }
-
-
-        private void buttonSearch_Click(object sender, EventArgs e)
-        {
-            var value = searchString.Text;
-            if (radioButtonFav.Checked)
-                Selected(dataGridViewUsers, value);
-            else if (radioButtonShops.Checked)
-                Selected(dataGridViewShops, value);
             else
             {
-                Selected(dataGridViewShops, value);
-                Selected(dataGridViewUsers, value);
+                var addShop = new AddShopForm(dataGridViewShops);
+                addShop.Show();
             }
         }
 
-        private void buttonOk_Click(object sender, EventArgs e)
+        private void dataGridViewShops_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            for (var i = 0; i < dataGridViewShops.ColumnCount; i++)
-                for (var j = 0; j < dataGridViewShops.RowCount; j++)
-                    dataGridViewShops.Rows[j].Selected = false;
-            for (var i = 0; i < dataGridViewUsers.ColumnCount; i++)
-                for (var j = 0; j < dataGridViewUsers.RowCount; j++)
-                    dataGridViewUsers.Rows[j].Selected = false;
+            UpdateInfoBarShops();
         }
 
-
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void dataGridViewUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var addUser = new AddUserForm();
-            addUser.Show();
+            UpdateInfoBarUsers();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (TabStatus())
+            {
+                groupBoxShops.Visible = false;
+                groupBoxUsers.Visible = true;
+            }
+            else
+            {
+                groupBoxShops.Visible = true;
+                groupBoxUsers.Visible = false;
+            }
         }
 
-        private void buttonDelete_Click(object sender, EventArgs e)
+        private bool TabStatus()
         {
-            var data = dataGridViewShops.Enabled ? dataGridViewShops : dataGridViewUsers;
-            for (var i = 0; i < data.RowCount; i++)
-                if (data.Rows[i].Selected)
-                {
-                    Data.DeleteRow(int.Parse(data[i, 0].Value.ToString()), i);
-                    break;
-                }
+            return tabControl.SelectedIndex != 0; // false = Shops  true = Users 
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _mySqlForUsersTable.FillDataUsers(dataGridViewUsers);
+            _mySqlForShopsTable.FillData(dataGridViewShops);
+        }
+
+        private void AdminElementsConfig()
+        {
+            dataGridViewShops.Columns[0].Visible = false;
+            dataGridViewShops.Columns[2].Visible = false;
+            dataGridViewShops.Columns[3].Visible = false;
+            dataGridViewShops.Columns[4].Visible = false;
+            dataGridViewShops.Columns[2].Visible = false;
+            dataGridViewUsers.Columns[0].Visible = false;
+            groupBoxUsers.Visible = false;
+            _shop = new Shop(Convert.ToInt32(dataGridViewShops.CurrentRow?.Cells[0].Value.ToString()),
+                dataGridViewShops.CurrentRow?.Cells[1].Value.ToString(),
+                dataGridViewShops.CurrentRow?.Cells[2].Value.ToString(),
+                dataGridViewShops.CurrentRow?.Cells[3].Value.ToString(),
+                dataGridViewShops.CurrentRow?.Cells[4].Value.ToString(),
+                Convert.ToInt32(dataGridViewShops.CurrentRow?.Cells[5].Value.ToString()));
+            _currentUser = new User(Convert.ToInt32(dataGridViewUsers.CurrentRow?.Cells[0].Value.ToString()),
+                dataGridViewUsers.CurrentRow?.Cells[0].Value.ToString(),
+                Convert.ToInt32(dataGridViewUsers.CurrentRow?.Cells[2].Value.ToString()));
+        }
+
+        private void AdminForm1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            if (TabStatus())
+            {
+                var updateUser = new UpdateUser(_currentUser, dataGridViewUsers);
+                updateUser.Show();
+            }
+            else
+            {
+                var updateShop = new UpdateShop(_shop, dataGridViewShops);
+                updateShop.Show();
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (TabStatus())
+            {
+                _mySqlForUsersTable.DeleteUser(_currentUser.UserId);
+                _mySqlForUsersTable.FillDataUsers(dataGridViewUsers);
+                UpdateInfoBarUsers();
+            }
+            else
+            {
+                _mySqlForShopsTable.DeleteShop(_shop.Id);
+                _mySqlForShopsTable.FillData(dataGridViewShops);
+                UpdateInfoBarShops();
+            }
+        }
+
+        private void UpdateInfoBarShops()
+        {
+            shopTitle.Text = _shop.Name = dataGridViewShops.CurrentRow?.Cells[1].Value.ToString();
+            _shop.Id = Convert.ToInt32(dataGridViewShops.CurrentRow?.Cells[0].Value.ToString());
+            shopId.Text = _shop.Id.ToString();
+            shopType.Text = _shop.Type = dataGridViewShops.CurrentRow?.Cells[2].Value.ToString();
+            shopCity.Text = _shop.City = dataGridViewShops.CurrentRow?.Cells[3].Value.ToString();
+            shopAdress.Text = _shop.Adress = dataGridViewShops.CurrentRow?.Cells[4].Value.ToString();
+            _shop.Rating = Convert.ToInt32(dataGridViewShops.CurrentRow?.Cells[5].Value.ToString());
+            shopRating.Text = _shop.Rating.ToString();
+        }
+
+        private void UpdateInfoBarUsers()
+        {
+            _currentUser.UserId = Convert.ToInt32(dataGridViewUsers.CurrentRow?.Cells[0].Value.ToString());
+            UserId.Text = _currentUser.UserId.ToString();
+            labelUserLogin.Text = _currentUser.UserLogin = dataGridViewUsers.CurrentRow?.Cells[1].Value.ToString();
+            _currentUser.GroupId = Convert.ToInt32(dataGridViewUsers.CurrentRow?.Cells[2].Value.ToString());
+            Permissions.Text = _currentUser.GroupId.ToString();
+        }
+
+        private void importButton_Click(object sender, EventArgs e)
+        {
+            DataTable dataTable;
+            if (TabStatus())
+            {
+                dataTable = _mySqlForUsersTable.GetDataBase();
+                _xml.SaveDataBaseUsers(dataTable);
+            }
+            else
+            {
+                dataTable = _mySqlForShopsTable.GetDataBase();
+                _xml.SaveDataBaseShops(dataTable);
+            }
+        }
+
+        private void exportButton_Click(object sender, EventArgs e)
+        {
+            DataSet dataSet;
+            if (TabStatus())
+            {
+                dataSet = _xml.FillUsersFromExport();
+                _mySqlForUsersTable.ExportData(dataSet);
+                _mySqlForUsersTable.FillDataUsers(dataGridViewUsers);
+            }
+            else
+            {
+                dataSet = _xml.FillShopsFromExport();
+                _mySqlForShopsTable.ExportData(dataSet);
+                _mySqlForShopsTable.FillData(dataGridViewShops);
+            }
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _user = new User();
+            Hide();
+            var loginForm = new Login();
+            loginForm.Show();
+        }
+
+        private void catalogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            var userForm = new UserForm(_user);
+            userForm.Show();
         }
     }
 }

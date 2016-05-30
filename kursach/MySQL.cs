@@ -6,7 +6,6 @@ namespace kursach
     {
         protected MySqlCommand Command;
         protected MySqlDataAdapter Adapter;
-
         protected MySqlConnection Connection { get; }
 
         protected MySql()

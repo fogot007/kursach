@@ -1,28 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace kursach
+﻿namespace kursach
 {
-    class User
+    public class User
     {
-        private int GroupId { get; }
-        private string UserLogin { get; }
-        private string UserId { get; }
+        public int GroupId { get; set; }
+        public string UserLogin { get; set; }
+        public int UserId { get; set; }
+        public string UserPassword { get; set; }
 
 
-        public User(int groupId, string userLogin, string userId)
+        public User(int groupId, string userLogin, int userId, string userPassword)
         {
             GroupId = groupId;
             UserLogin = userLogin;
             UserId = userId;
+            UserPassword = userPassword;
         }
 
-        public void SetUser()
+        public User(int groupId, string userLogin, int userId)
         {
-            
+            GroupId = groupId;
+            UserLogin = userLogin;
+            UserPassword = "";
+            UserId = userId;
+        }
+
+        public User(string userLogin, string userPassword)
+        {
+            GroupId = 2;
+            UserLogin = userLogin;
+            UserPassword = userPassword;
+            UserId = 0;
+        }
+
+        public User()
+        {
+            GroupId = 0;
+            UserLogin = "";
+            UserPassword = "";
+            UserId = 0;
         }
     }
 }

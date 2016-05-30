@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <Shop>
+    <shop_id>30</shop_id>
+    <shop_name>shop5</shop_name>
+    <shop_type>type5</shop_type>
+    <shop_city>city6</shop_city>
+    <shop_adress>address7</shop_adress>
+    <shop_rating>4</shop_rating>
+  </Shop>
+  <Shop>
+    <shop_id>29</shop_id>
+    <shop_name>example</shop_name>
+    <shop_type>type3</shop_type>
+    <shop_city>city3</shop_city>
+    <shop_adress>address3</shop_adress>
+    <shop_rating>8</shop_rating>
+  </Shop>
+  <Shop>
+    <shop_id>28</shop_id>
+    <shop_name>shop1</shop_name>
+    <shop_type>type1</shop_type>
+    <shop_city>city1</shop_city>
+    <shop_adress>address1</shop_adress>
+    <shop_rating>4</shop_rating>
+  </Shop>
+  <Shop>
+    <shop_id>27</shop_id>
+    <shop_name>shop</shop_name>
+    <shop_type>type</shop_type>
+    <shop_city>city</shop_city>
+    <shop_adress>address</shop_adress>
+    <shop_rating>5</shop_rating>
+  </Shop>
+</DocumentElement>

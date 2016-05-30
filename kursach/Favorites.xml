@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="yes"?>
+<FavoritesTable>
+  <item>
+    <Id>28</Id>
+    <Title>shop1</Title>
+    <Type>type1</Type>
+    <City>city1</City>
+    <Adress>address1</Adress>
+    <Rating>5</Rating>
+  </item>
+</FavoritesTable>
